@@ -3,22 +3,33 @@ import StockContainer from './StockContainer'
 import PortfolioContainer from './PortfolioContainer'
 import SearchBar from '../components/SearchBar'
 
+
+
 class MainContainer extends Component {
+  
+  
 
   render() {
     return (
       <div>
-        <SearchBar/>
+        <SearchBar 
+        handleChange={this.props.handleChange}
+        handleFilter={this.props.handleFilter}
+        sortBy = { this.props.sortBy }/>
 
           <div className="row">
             <div className="col-8">
 
-              <StockContainer/>
+              <StockContainer
+              displayStocks={this.props.displayStocks} 
+              addStock={this.props.addStock}/>
 
             </div>
             <div className="col-4">
 
-              <PortfolioContainer/>
+              <PortfolioContainer
+              portfolio={this.props.portfolio}
+              removeStock={this.props.removeStock}/>
 
             </div>
           </div>
